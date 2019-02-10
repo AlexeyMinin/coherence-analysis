@@ -9,11 +9,11 @@ using namespace OpenViBEPlugins::SignalProcessing;
 
 bool CBoxAlgorithmCoherenceAnalysis::initialize(void)
 {
-	m_oInput0Decoder.initialize(*this, 0);
-	m_oInput1Decoder.initialize(*this, 1);
-	m_oOutput0Encoder.initialize(*this, 0);
+	m_oInputAmplitudeDecoder.initialize(*this, 0);
+	m_oInputPhaseDecoder.initialize(*this, 1);
+	m_oOutputCoherenceMatrixEncoder.initialize(*this, 0);
 	
-@@AlgorithmInitialisationReferenceTargets@@	
+	// @@AlgorithmInitialisationReferenceTargets@@	
 	// If you need to retrieve setting values, use the FSettingValueAutoCast function.
 	// For example :
 	// - CString setting at index 0 in the setting list :
@@ -30,9 +30,9 @@ bool CBoxAlgorithmCoherenceAnalysis::initialize(void)
 
 bool CBoxAlgorithmCoherenceAnalysis::uninitialize(void)
 {
-	m_oInput0Decoder.uninitialize();
-	m_oInput1Decoder.uninitialize();
-	m_oOutput0Encoder.uninitialize();
+	m_oInputAmplitudeDecoder.uninitialize();
+	m_oInputPhaseDecoder.uninitialize();
+	m_oOutputCoherenceMatrixEncoder.uninitialize();
 
 	return true;
 }

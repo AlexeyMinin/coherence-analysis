@@ -2,7 +2,7 @@
 #define __OpenViBEPlugins_BoxAlgorithm_CoherenceAnalysis_H__
 
 //You may have to change this path to match your folder organisation
-#include "ovp_defines.h"
+#include "../ovp_defines.h"
 
 #include <openvibe/ov_all.h>
 #include <toolkit/ovtk_all.h>
@@ -52,10 +52,10 @@ namespace OpenViBEPlugins
 
 		protected:
 			// Input decoder:
-			OpenViBEToolkit::TSpectrumDecoder < CBoxAlgorithmCoherenceAnalysis > m_oInput0Decoder;
-			OpenViBEToolkit::TSpectrumDecoder < CBoxAlgorithmCoherenceAnalysis > m_oInput1Decoder;
+			OpenViBEToolkit::TSpectrumDecoder < CBoxAlgorithmCoherenceAnalysis > m_oInputAmplitudeDecoder;
+			OpenViBEToolkit::TSpectrumDecoder < CBoxAlgorithmCoherenceAnalysis > m_oInputPhaseDecoder;
 			// Output decoder:
-			OpenViBEToolkit::TStreamedMatrixEncoder < CBoxAlgorithmCoherenceAnalysis> m_oOutput0Encoder;
+			OpenViBEToolkit::TStreamedMatrixEncoder < CBoxAlgorithmCoherenceAnalysis> m_oOutputCoherenceMatrixEncoder;
 
 		};
 
@@ -116,12 +116,12 @@ namespace OpenViBEPlugins
 
 			virtual void release(void) { }
 
-			virtual OpenViBE::CString getName(void) const                { return OpenViBE::CString("Coherence analysis"); }
+			virtual OpenViBE::CString getName(void) const                { return OpenViBE::CString("Coherence Analysis"); }
 			virtual OpenViBE::CString getAuthorName(void) const          { return OpenViBE::CString("Alexey Minin"); }
 			virtual OpenViBE::CString getAuthorCompanyName(void) const   { return OpenViBE::CString("UrFU"); }
 			virtual OpenViBE::CString getShortDescription(void) const    { return OpenViBE::CString("Performs a Coherence Analysis"); }
 			virtual OpenViBE::CString getDetailedDescription(void) const { return OpenViBE::CString("The box performs a coherent analysis of the signal spectrum (amplitude and phase), at the output of the box a matrix of coherence coefficients between channels"); }
-			virtual OpenViBE::CString getCategory(void) const            { return OpenViBE::CString("Signal processing"); }
+			virtual OpenViBE::CString getCategory(void) const            { return OpenViBE::CString("Signal processing/Coherence Analysis"); }
 			virtual OpenViBE::CString getVersion(void) const             { return OpenViBE::CString("0.1.1"); }
 			virtual OpenViBE::CString getStockItemName(void) const       { return OpenViBE::CString("gtk-file"); }
 
